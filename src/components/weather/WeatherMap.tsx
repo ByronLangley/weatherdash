@@ -97,7 +97,7 @@ export function WeatherMap() {
       <div className="h-[300px] sm:h-[350px] lg:h-[400px]">
         <MapContainer
           center={[coords.lat, coords.lon]}
-          zoom={8}
+          zoom={6}
           scrollWheelZoom={false}
           style={{ height: "100%", width: "100%" }}
           attributionControl={true}
@@ -111,7 +111,7 @@ export function WeatherMap() {
           {/* Weather overlay */}
           <TileLayer
             url={`https://tile.openweathermap.org/map/${layer}/{z}/{x}/{y}.png?appid=${tileKey}`}
-            opacity={0.6}
+            opacity={0.85}
           />
 
           {/* City marker */}
