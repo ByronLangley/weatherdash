@@ -82,9 +82,10 @@ export function WeatherMap() {
           <button
             key={opt.value}
             onClick={() => setLayer(opt.value)}
-            className={`rounded-[--radius-md] px-3 py-1.5 text-xs font-medium transition-colors ${
+            aria-pressed={layer === opt.value}
+            className={`rounded-[--radius-md] px-3 py-1.5 text-xs font-medium transition-colors duration-300 ${
               layer === opt.value
-                ? "bg-accent text-white"
+                ? "bg-weather-accent text-white"
                 : "text-text-secondary hover:bg-bg-tertiary"
             }`}
           >

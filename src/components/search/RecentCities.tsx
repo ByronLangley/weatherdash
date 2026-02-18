@@ -24,43 +24,39 @@ export function RecentCities() {
           Math.round(city.lon * 100) === Math.round(coords.lon * 100);
 
         return (
-          <button
+          <div
             key={`${city.lat}-${city.lon}`}
-            onClick={() => setCurrentCity(city)}
-            className={`group flex shrink-0 items-center gap-1 rounded-[--radius-full] px-3 py-1.5 text-xs font-medium transition-colors ${
+            className={`group flex shrink-0 items-center gap-1 rounded-[--radius-full] px-3 py-1.5 text-xs font-medium transition-colors duration-300 ${
               isActive
-                ? "bg-accent text-white"
+                ? "bg-weather-accent text-white"
                 : "bg-bg-tertiary text-text-secondary hover:bg-bg-secondary"
             }`}
           >
-            <span className="max-w-[120px] truncate">{city.name}</span>
-            <span
-              role="button"
-              tabIndex={0}
+            <button
+              onClick={() => setCurrentCity(city)}
+              className="max-w-[120px] truncate"
+            >
+              {city.name}
+            </button>
+            <button
               aria-label={`Remove ${city.name}`}
               onClick={(e) => {
                 e.stopPropagation();
                 removeRecentCity(city.lat, city.lon);
               }}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.stopPropagation();
-                  removeRecentCity(city.lat, city.lon);
-                }
-              }}
-              className={`ml-0.5 opacity-0 transition-opacity group-hover:opacity-100 ${
+              className={`ml-0.5 h-4 w-4 flex items-center justify-center rounded-full opacity-0 transition-opacity group-hover:opacity-100 ${
                 isActive ? "text-white/80 hover:text-white" : "text-text-tertiary hover:text-text-primary"
               }`}
             >
               <X className="h-3 w-3" />
-            </span>
-          </button>
+            </button>
+          </div>
         );
       })}
       {recentCities.length > 1 && (
         <button
           onClick={clearRecentCities}
-          className="shrink-0 text-xs text-text-tertiary hover:text-error"
+          className="shrink-0 p-1 text-xs text-text-tertiary hover:text-error"
           aria-label="Clear all recent cities"
         >
           <Trash2 className="h-3.5 w-3.5" />

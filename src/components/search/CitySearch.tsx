@@ -113,6 +113,7 @@ export function CitySearch() {
           aria-activedescendant={
             activeIndex >= 0 ? `city-option-${activeIndex}` : undefined
           }
+          aria-label="Search for a city"
           placeholder="Search for a city..."
           value={sanitizedQuery}
           onChange={(e) => setQuery(e.target.value)}
@@ -145,6 +146,7 @@ export function CitySearch() {
           id="city-search-listbox"
           ref={listRef}
           role="listbox"
+          aria-live="polite"
           className="absolute top-full z-50 mt-1 w-full overflow-hidden rounded-[--radius-md] border border-border bg-bg-card shadow-[var(--shadow-lg)]"
         >
           {error && results.length === 0 ? (

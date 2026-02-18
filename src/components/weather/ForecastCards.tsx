@@ -51,22 +51,22 @@ export function ForecastCards() {
               onClick={() =>
                 setSelectedDay(isSelected ? null : day.dateISO)
               }
-              className={`flex min-w-[120px] flex-1 flex-col items-center gap-2 rounded-[--radius-lg] border bg-bg-card p-4 transition-all cursor-pointer ${
+              className={`flex min-w-[120px] flex-1 flex-col items-center gap-2 rounded-[--radius-lg] border bg-bg-card p-4 transition-all duration-300 cursor-pointer ${
                 isSelected
-                  ? "border-accent shadow-[var(--shadow-md)] ring-2 ring-accent/30"
+                  ? "border-weather-accent shadow-[var(--shadow-md)] ring-2 ring-weather-accent/30"
                   : day.date === "Today"
-                  ? "border-accent/50 shadow-[var(--shadow-sm)]"
-                  : "border-border hover:border-accent/30 hover:shadow-[var(--shadow-sm)]"
+                  ? "border-weather-accent/50 shadow-[var(--shadow-sm)]"
+                  : "border-border hover:border-weather-accent/30 hover:shadow-[var(--shadow-sm)]"
               }`}
               aria-pressed={isSelected}
               aria-label={`${day.date} forecast: ${day.conditionMain}, high ${formatTemp(day.tempMax, unit)}, low ${formatTemp(day.tempMin, unit)}`}
             >
               <p
-                className={`text-sm font-semibold ${
+                className={`text-sm font-semibold transition-colors duration-300 ${
                   isSelected
-                    ? "text-accent"
+                    ? "text-weather-accent"
                     : day.date === "Today"
-                    ? "text-accent"
+                    ? "text-weather-accent"
                     : "text-text-secondary"
                 }`}
               >

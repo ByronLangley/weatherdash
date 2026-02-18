@@ -21,7 +21,7 @@ export default function Home() {
           <RecentCities />
 
           {/* Current Weather — full width hero */}
-          <section aria-label="Current weather">
+          <section aria-label="Current weather" aria-live="polite">
             <CurrentWeather />
           </section>
 
@@ -52,7 +52,7 @@ export default function Home() {
           href="https://openweathermap.org"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-accent hover:underline"
+          className="text-weather-accent hover:underline transition-colors duration-300"
         >
           OpenWeatherMap
         </a>

@@ -38,15 +38,22 @@ export function CurrentWeather() {
   const condition = weather.weather[0];
 
   return (
-    <div className="overflow-hidden rounded-[--radius-lg] border border-border bg-bg-card p-6 shadow-[var(--shadow-md)] transition-colors duration-300">
+    <div className="relative overflow-hidden rounded-[--radius-lg] border border-border bg-bg-card p-6 shadow-[var(--shadow-md)] transition-colors duration-300">
+      {/* Weather-themed accent bar */}
+      <div
+        className="absolute inset-x-0 top-0 h-1 transition-colors duration-500"
+        style={{ background: "linear-gradient(90deg, var(--weather-gradient-from), var(--weather-accent), var(--weather-gradient-to))" }}
+      />
       <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start sm:gap-8">
         {/* Icon + condition */}
         <div className="flex flex-col items-center gap-2">
-          <WeatherIcon
-            conditionId={condition.id}
-            icon={condition.icon}
-            className="h-16 w-16 text-weather-accent"
-          />
+          <div className="rounded-full bg-weather-tint/40 p-3 transition-colors duration-500">
+            <WeatherIcon
+              conditionId={condition.id}
+              icon={condition.icon}
+              className="h-16 w-16 text-weather-accent"
+            />
+          </div>
           <p className="text-sm font-medium capitalize text-text-secondary">
             {condition.description}
           </p>

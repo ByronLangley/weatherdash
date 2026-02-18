@@ -17,7 +17,7 @@ export function UnitToggle() {
         onClick={() => setUnit("metric")}
         className={`flex h-full w-10 items-center justify-center text-sm font-semibold transition-colors ${
           unit === "metric"
-            ? "bg-accent text-white"
+            ? "bg-weather-accent text-white"
             : "bg-bg-card text-text-secondary hover:bg-bg-tertiary"
         }`}
       >
@@ -29,7 +29,7 @@ export function UnitToggle() {
         onClick={() => setUnit("imperial")}
         className={`flex h-full w-10 items-center justify-center text-sm font-semibold transition-colors ${
           unit === "imperial"
-            ? "bg-accent text-white"
+            ? "bg-weather-accent text-white"
             : "bg-bg-card text-text-secondary hover:bg-bg-tertiary"
         }`}
       >
